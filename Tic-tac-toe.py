@@ -1,3 +1,16 @@
+# Fist make a plan
+
+# board
+# display board
+# play game
+# check win
+# check row
+# check columns
+# check diagonals
+# check tie
+# flip player
+
+
 # script the board
 board = ["_", "_", "_",
          "_", "_", "_",
@@ -17,23 +30,23 @@ def play_game():
 
     display_board()
 
-    handle_turn()
+    while game_still_going:
 
+        handle_turn(current_player)
+
+        check_if_game_over()
+
+        flip_player()
 
 # A function to handle the turn
+
+
 def handle_turn():
     position = input("Choose a position for 1-9: ")
     position = int(position) - 1
 
+    board[position] = "X"
+    display_board()
 
-# Fist make a plan
 
-# board
-# display board
-# play game
-# check win
-    # check row
-    # check columns
-    # check diagonals
-# check tie
-# flip player
+play_game()
