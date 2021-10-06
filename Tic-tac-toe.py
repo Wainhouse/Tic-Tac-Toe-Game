@@ -64,7 +64,13 @@ def play_game():
 
 
 def handle_turn(player):
+
+    print(player + "'s turn.")
     position = input("Choose a position for 1-9: ")
+
+    while position not in ["1", "2", "3", "4", "5", "6", "7", "8", "9"]:
+        position = input("Choose a position for 1-9: ")
+
     position = int(position) - 1
 
     board[position] = player
@@ -161,6 +167,10 @@ def check_diag():
 
 
 def check_for_tie():
+    # insert global
+    global game_still_going
+    if "-" not in board:
+        game_still_going = False
 
     return
 
@@ -173,7 +183,7 @@ def flip_player():
         current_player = "O"
     # If current player is O, then change it to X
     elif current_player == "O":
-        current_player + "X"
+        current_player = "X"
     return
 
 
