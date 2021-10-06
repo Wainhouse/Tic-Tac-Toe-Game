@@ -10,6 +10,9 @@
 # check tie
 # flip player
 
+# ---- Global Variables ----
+
+# Game board
 
 # script the board
 board = ["_", "_", "_",
@@ -25,7 +28,7 @@ def display_board():
     print(board[6] + " | " + board[7] + " |" + board[8])
 
 
-# display initial board
+# rule of the game disp[lay the board
 def play_game():
 
     display_board()
@@ -47,6 +50,32 @@ def handle_turn():
 
     board[position] = "X"
     display_board()
+
+
+def check_if_game_over():
+    check_if_win()
+    check_if_tie()
+
+
+def check_if_win()
+
+
+# check rows
+# check columns
+# check diagonals
+return
+
+
+def check_if_tie()
+
+
+return
+
+
+def flip_player()
+
+
+return
 
 
 play_game()
