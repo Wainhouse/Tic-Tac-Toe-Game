@@ -88,15 +88,17 @@ def check_for_win():
     column_winner = check_colums()
     # check diagonals
     diag_winner = check_diag()
+
+    # get the winner
     if row_winner:
         # There was a win
-        winner = row_winner()
+        winner = row_winner
     elif column_winner:
         # There was a win
-        winner = column_winner()
+        winner = column_winner
     elif diag_winner:
         # There was a win
-        winner = diag_winner()
+        winner = diag_winner
     else:
         # There was no win
         winner = None
@@ -108,17 +110,53 @@ def check_rows():
     global game_still_going
     # check if any of the rows have won
     row_1 = board[0] == board[1] == board[2] != "-"
-    row_2 = board[4] == board[5] == board[6] != "-"
-    row_3 = board[7] == board[8] == board[9] != "-"
+    row_2 = board[3] == board[4] == board[5] != "-"
+    row_3 = board[6] == board[7] == board[8] != "-"
+    # if a win, flag a win
+    if row_1 or row_2 or row_3:
+        game_still_going = False
+    # Return the winner (X or o)
+    if row_1:
+        return board[0]
+    elif row_2:
+        return board[3]
+    elif row_3:
+        return board[6]
     return
 
 
 def check_colums():
-
+    global game_still_going
+    # check if any of the col have won
+    column_1 = board[0] == board[3] == board[6] != "-"
+    column_2 = board[1] == board[4] == board[7] != "-"
+    column_3 = board[2] == board[5] == board[8] != "-"
+    # if a win, flag a win
+    if column_1 or column_2 or column_3:
+        game_still_going = False
+    # Return the winner (X or o)
+    if column_1:
+        return board[0]
+    elif column_2:
+        return board[1]
+    elif column_3:
+        return board[2]
     return
 
 
 def check_diag():
+    global game_still_going
+    # check if any of the diag have won
+    diag_1 = board[0] == board[4] == board[8] != "-"
+    diag_2 = board[6] == board[4] == board[2] != "-"
+    # if a win, flag a win
+    if diag_1 or diag_2:
+        game_still_going = False
+    # Return the winner (X or o)
+    if diag_1:
+        return board[0]
+    elif diag_2:
+        return board[6]
     return
 
 
