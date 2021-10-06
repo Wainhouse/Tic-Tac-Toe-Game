@@ -67,7 +67,7 @@ def handle_turn(player):
     position = input("Choose a position for 1-9: ")
     position = int(position) - 1
 
-    board[position] = "X"
+    board[position] = player
 
     display_board()
 
@@ -166,7 +166,14 @@ def check_for_tie():
 
 
 def flip_player():
-
+    # need global var
+    global current_player
+    # if current player was X, then change it to O
+    if current_player == "X":
+        current_player = "O"
+    # If current player is O, then change it to X
+    elif current_player == "O":
+        current_player + "X"
     return
 
 
